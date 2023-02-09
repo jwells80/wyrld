@@ -11,6 +11,7 @@ NUM_LETTERS = 5
 NUM_GUESSES = 6
 WORDS_PATH = pathlib.Path(__file__).parent / "wordlist.txt"
 
+
 def main():
     words_path = pathlib.Path(__file__).parent / "wordlist.txt"
     word = get_random_word(words_path.read_text(encoding="utf-8").split("\n"))
@@ -40,7 +41,9 @@ def get_random_word(word_list):
     ]:
         return random.choice(words)
     else:
-        console.print("No words of length of 5 in the word list", style="warning")
+        console.print("No words of length of 5 in the word list",
+                      style="warning"
+                      )
         raise SystemExit()
 
 
@@ -75,7 +78,9 @@ def game_over(guesses, word, guessed_correctly):
     show_guesses(guesses, word)
 
     if guessed_correctly:
-        console.print(f"\n[bold white on green] Correct, the word is {word}[/]")
+        console.print(
+            f"\n[bold white on green] Correct, the word is {word}[/]"
+            )
     else:
         console.print(f"\n[bold white on red]Sorry, the word was {word}[/]")
     play_again = input("Would you like to play again? [y/N]")
@@ -100,7 +105,8 @@ def guess_word(previous_guesses):
         return guess_word(previous_guesses)
     if any((invalid := letter) not in ascii_letters for letter in guess):
         console.print(
-            f"Invalid letter: '{invalid}'. Please use English letters.", style="warning"
+            f"Invalid letter: '{invalid}'. Please use English letters.",
+            style="warning"
         )
         return guess_word(previous_guesses)
 
