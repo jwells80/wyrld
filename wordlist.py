@@ -1,7 +1,7 @@
 import pathlib
 import sys
 
-from string import asciii_letters
+from string import ascii_letters
 
 in_path = pathlib.PATH(sys.argv[1])
 out_path = pathlib.PATH(sys.argv[2])
