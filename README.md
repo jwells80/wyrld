@@ -9,3 +9,4 @@ to run game call
 ```
 python wyrdl.py
 ```
+![Wordle](screenshot/screenshot.png)
